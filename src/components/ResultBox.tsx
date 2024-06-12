@@ -10,15 +10,15 @@ interface data {
 }
 
 export interface ResultProps {
-  result: {
-    "message": data[],
-    "time": number
-  }
+  "message": data[],
+  "time": number
 }
 
-const ResultBox = ({result}:ResultProps) => {
-  console.log("Result", result)
+interface Props {
+  result: ResultProps
+}
 
+const ResultBox = ({result}:Props) => {
   return <div className="w-full flex flex-col justify-center items-center">
     <Card className="w-full bg-transparent">
       <CardHeader>

@@ -3,7 +3,7 @@
 import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
 import { Input } from "./ui/input"
 import { Button } from "./ui/button"
 import { useState } from "react"
@@ -27,16 +27,14 @@ const MainComponent = ({ }) => {
   })
 
   const [result, setResult] = useState<ResultProps>({
-    result: {
-      "message": [],
-      "time": 0
-    }
+    message: [],
+    time: 0
   })
 
   function onSubmit(data: z.infer<typeof formSchema>) {
-    const res = findText(data.text).then((res) => {
+    findText(data.text).then((res) => {
       setResult(res);
-      });
+    });
   }
 
   return (
